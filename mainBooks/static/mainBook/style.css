@@ -38,4 +38,13 @@ body {
 .nav .search {
   padding: 1.7% 1% 1% 5%;
 }
+
+.content {
+  background: red;
+  padding: 15%;
+}
+
+.content h1 {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */

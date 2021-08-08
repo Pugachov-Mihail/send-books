@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(requests):
-    return render(requests, template_name='layout/base.html')
+    contex = {'hello':'Привет Андрей!'}
+    return render(requests,'mainBook/index.html', contex)
