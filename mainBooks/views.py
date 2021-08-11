@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from .models import Autor, Books, Categories
 
 # Create your views here.
 
 
 def index(requests):
-    contex = {'hello':'Привет Андрей!'}
-    return render(requests,'mainBook/index.html', contex)
+    books = Books.objects.all()
+    template = 'mainBook/index.html'
+    contex = {'books': books}
+    return render(requests,template, contex)

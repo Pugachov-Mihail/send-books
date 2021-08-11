@@ -1,5 +1,10 @@
 {% extends 'mainBook/layout/base.html' %}
 {% load static %}
 {% block content %}
-    <h2>{{ hello }}</h2>
+    {% for book in books %}
+        <h2>{{ book.name }}</h2>
+        <h3>{{ book.autors }}</h3>
+        <h3>{{ book.categories }}</h3>
+    {% endfor %}
+
 {% endblock %}
