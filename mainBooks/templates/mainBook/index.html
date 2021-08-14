@@ -1,10 +1,22 @@
 {% extends 'mainBook/layout/base.html' %}
 {% load static %}
-{% block content %}
+{% block main %}
     {% for book in books %}
-        <h2>{{ book.name }}</h2>
-        <h3>{{ book.autors }}</h3>
-        <h3>{{ book.categories }}</h3>
+            <div class="main_block">
+                <img src="{% static 'mainBook/temp/book.jpg' %}" alt="Book">
+                <h1 class="heading">
+                    {{ book.name }}
+                </h1>
+                <h3 class="autor">{{ book.autors }}</h3>
+                <p class="description">{{ book.description }}</p>
+                {% for categ in categiries %}
+                    <button class="btn">{{ categ.title }}</button>
+                {% endfor %}
+                <div class="reit">
+                    <h2>Рейтинг</h2>
+                    <span class="starts">&#9734;&#9734;&#9734;&#9734;&#9734;</span>
+                    <button class="download">Скачать</button>
+                </div>
+            </div>
     {% endfor %}
-
 {% endblock %}

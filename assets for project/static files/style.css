@@ -67,6 +67,7 @@ body {
 }
 
 .main_block {
+  margin-top: 1%;
   position: relative;
   margin-left: 10%;
   width: 80%;

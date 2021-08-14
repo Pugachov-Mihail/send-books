@@ -6,16 +6,17 @@ class Books(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название книги')
     autors = models.ForeignKey('Autor', on_delete=models.CASCADE, verbose_name='Автор')
     categories = models.ForeignKey('Categories', on_delete=models.CASCADE, verbose_name="Жанр")
-
+    description = models.TextField(max_length=500, verbose_name='Описание', blank=True, null=True)
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name_plural = "Книги"
-        verbose_name = "Книги"
+        verbose_name = "Книгу"
 
 class Categories(models.Model):
     title = models.CharField(max_length=20, verbose_name='Название жанра')
+    categor = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Категории', blank=True, null=True)
 
     def __str__(self):
         return self.title

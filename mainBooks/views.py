@@ -6,6 +6,10 @@ from .models import Autor, Books, Categories
 
 def index(requests):
     books = Books.objects.all()
+    categor = Categories.objects.all()
     template = 'mainBook/index.html'
-    contex = {'books': books}
+    contex = {
+        'books': books,
+        'categiries': categor
+              }
     return render(requests,template, contex)
