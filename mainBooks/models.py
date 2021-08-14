@@ -16,7 +16,6 @@ class Books(models.Model):
 
 class Categories(models.Model):
     title = models.CharField(max_length=20, verbose_name='Название жанра')
-    categor = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Категории', blank=True, null=True)
 
     def __str__(self):
         return self.title
