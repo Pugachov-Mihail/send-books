@@ -2,21 +2,19 @@
 {% load static %}
 {% block main %}
     {% for book in books %}
-            <div class="main_block">
+            <div class="main"><div class="main_block">
                 <img src="{% static 'mainBook/temp/book.jpg' %}" alt="Book">
                 <h1 class="heading">
                     {{ book.name }}
                 </h1>
                 <h3 class="autor">{{ book.autors }}</h3>
-                <p class="description">{{ book.description }}</p>
-                {% for categ in categiries %}
-                    <button class="btn">{{ categ.title }}</button>
-                {% endfor %}
+                <p class="description">{% if book.description %}{{ book.description }}{% else %}Нет описания{% endif %}</p>
+                <button class="btn">{{ book.categories }}</button>
                 <div class="reit">
                     <h2>Рейтинг</h2>
                     <span class="starts">&#9734;&#9734;&#9734;&#9734;&#9734;</span>
                     <button class="download">Скачать</button>
                 </div>
-            </div>
+            </div></div>
     {% endfor %}
 {% endblock %}
