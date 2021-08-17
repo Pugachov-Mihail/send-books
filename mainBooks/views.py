@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Autor, Books, Categories
-from registration.form import Login, CreateUser
+from registration.form import CreateUser
 # Create your views here.
 
 
@@ -13,9 +13,3 @@ def index(requests):
         'categiries': categor
               }
     return render(requests, template, contex)
-
-def registration(requests):
-    form = CreateUser
-    template = 'mainBook/registaration/regist.html'
-    context = {'form': form }
-    return render(requests, template, context)
