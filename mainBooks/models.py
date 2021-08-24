@@ -1,6 +1,8 @@
 from django.db import models
-
+from registration.models import UsersBook
 # Create your models here.
+
+
 
 class Books(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название книги')

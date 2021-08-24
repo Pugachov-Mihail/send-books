@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Autor, Books, Categories
 from registration.form import CreateUser
 from django.contrib.auth.models import User
+from registration.models import UsersBook
 # Create your views here.
 
 

@@ -7,4 +7,9 @@
     <h1>{{ id }}</h1>
     <h1>{{ user.name }}</h1>
 {% endfor %}
+{% for book in books %}
+<p>
+    {{ book.name }}
+</p>
+{% endfor %}
 {% endblock %}
