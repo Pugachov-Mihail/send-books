@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, office
+from .views import index, office, download
 from django.contrib.auth.views import LoginView, LogoutView
 from registration.form import Login, CreateUser
 from django.contrib.auth.models import User
@@ -12,4 +12,5 @@ urlpatterns = [
     path('login/', Login.as_view(), name='login'),
     path('registration/', CreateUser.as_view(), name='registration'),
     path('office/', office, name='office'),
+    path('download/', download, name='download')
 ]
