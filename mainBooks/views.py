@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Autor, Books, Categories
 from registration.form import CreateUser
+from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from registration.models import UsersBook
+from django.urls import reverse_lazy
 from .forms import BooksForm
 # Create your views here.
 
@@ -26,14 +28,13 @@ def office(request):
     }
     return render(request, template, content)
 
-def download(request):
-    template = 'mainBook/download.html'
-    if request.method=="POST":
-        form = BooksForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('mainBooks:index')
-        else:
-            form = BooksForm()
-    context = {'form': form}
-    return render(request, template, context)
+class BooksCreateView(CreateView):
+    template_name = 'mainBook/download.html'
+    form_class = BooksForm
+    success_url = reverse_lazy('mainBooks/office')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['autors'] = Autor.objects.all()
+        context['categories'] = Categories.objects.all()
+        return context
