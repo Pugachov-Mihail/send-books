@@ -1,18 +1,15 @@
 from django.db import models
-from registration.models import UsersBook
 from django.contrib.auth.models import User
 from django.core import validators
-# Create your models here.
 
-def user_directory(user, filename):
-    return '%s/%s' % (user.username, filename)
+# Create your models here.
 
 class Books(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название книги')
     autors = models.ForeignKey('Autor', on_delete=models.CASCADE, verbose_name='Автор')
     categories = models.ForeignKey('Categories', on_delete=models.CASCADE, verbose_name="Жанр")
     description = models.TextField(max_length=500, verbose_name='Описание', blank=True, null=True)
-    #book = models.FileField(upload_to=user_directory, blank=True, validators=[validators.FileExtensionValidator(allowed_extensions=('pdf', 'fb2', 'mobi', 'epab', 'djvu'))], verbose_name='Загрузить книгу')
+    book = models.FileField(upload_to='book/', blank=True, validators=[validators.FileExtensionValidator(allowed_extensions=('pdf', 'fb2', 'mobi', 'epab', 'djvu'))], verbose_name='Загрузить книгу')
 
     def __str__(self):
         return self.name
