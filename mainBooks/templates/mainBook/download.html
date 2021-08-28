@@ -8,11 +8,17 @@
 
 
 {% block download %}
-    <div class="main">
+<div class="main" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html">
         <h2>Вход на сайт</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            <input type="text">{{ form.name }}</input>
+            <input type="text">{{ form.description }}</input>
+            <input type="text" value="Name">{{ autors.first_name }}</input>
+            <input type="text" value="Second">{{ autors.second_name }}</input>
+            <input type="text" value="Категории">{{ categories.title }}</label>
+           {{ form.book }}
             <button class="btn" type="submit">Загрузить</button>
         </form>
     </div>
