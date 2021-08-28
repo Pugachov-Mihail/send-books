@@ -9,15 +9,13 @@
 
 
 {% block download %}
-<div class="main" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+<div class="container-sm col-md-6 col-md-offset-3" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
      xmlns="http://www.w3.org/1999/html">
-        <h2>Вход на сайт</h2>
-        <form method="post" enctype="multipart/form-data" class="form">
+        <div class="row-sm mt-5"><h2>Загрузка книг</h2></div>
+        <form method="post" class="mt-3 col-sm form-control form-control-lg center g-4" enctype="multipart/form-data">
             {% csrf_token %}
-            {% bootstrap_form form %}
-            {% buttons %}
-                <button type="submit" class="btn btn-primary">Загрузить</button>
-            {% endbuttons %}
+            {% bootstrap_form form label_class="pt-1"%}
+            {% bootstrap_button "Загрузить" button_type="submit" button_class="btn btn-dark mt-2" %}
         </form>
     </div>
 {% endblock %}
