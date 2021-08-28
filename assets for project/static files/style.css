@@ -161,4 +161,21 @@ main .main {
   color: black;
   border-color: red;
 }
+
+.forms .input_name {
+  margin-left: 10%;
+  padding: .2%;
+  border: 1px solid;
+}
+
+.forms .input_name div {
+  display: inline;
+  border: 1px solid;
+  width: 200px;
+  height: 10%;
+}
+
+.forms .input_name input {
+  margin-left: 5%;
+}
 /*# sourceMappingURL=style.css.map */

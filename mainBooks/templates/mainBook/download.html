@@ -1,4 +1,5 @@
 {% extends 'mainBook/layout/base.html' %}
+{% load bootstrap3 %}
 {% load static %}
 
 
@@ -11,15 +12,12 @@
 <div class="main" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
      xmlns="http://www.w3.org/1999/html">
         <h2>Вход на сайт</h2>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="form">
             {% csrf_token %}
-            <input type="text">{{ form.name }}</input>
-            <input type="text">{{ form.description }}</input>
-            <input type="text" value="Name">{{ autors.first_name }}</input>
-            <input type="text" value="Second">{{ autors.second_name }}</input>
-            <input type="text" value="Категории">{{ categories.title }}</label>
-           {{ form.book }}
-            <button class="btn" type="submit">Загрузить</button>
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Загрузить</button>
+            {% endbuttons %}
         </form>
     </div>
 {% endblock %}

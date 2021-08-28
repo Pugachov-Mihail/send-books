@@ -15,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
@@ -64,6 +66,48 @@
             </div>
         </div></div>
         {% endblock %}
+        <div class="forms">
+            <form method="POST">
+                {% csrf_token %}
+            <div class="input_name">
+                <label for="id_name">
+                    <span>Название книги:</span>
+                    <input type="text" required id="id_name">{{ form.name }}</input>
+                </label>
+            </div>   
+            <div class="input_name">
+                <label for="input_name">
+                    <span>Имя автора:</span>
+                    <input type="text" value="Name">{{ autors.first_name }}</input>
+                </label>
+            </div>   
+            <div class="input_name">
+                <label for="input_name">
+                    <div>Фамилия автора:</div>
+                    <input type="text" value="Name">{{ autors.second_name }}</input>
+                </label>
+            </div>  
+            <div class="input_name">
+                <label for="input_name">
+                    <div>Описание:</div>
+                    <input type="text">{{ form.description }}</input>
+                </label>
+            </div> 
+            <div class="input_name">
+                <label for="input_name">
+                    <p>Жанр:</p>
+                    {% for i in categories %}
+                        <input type="radio" value="Категории">{{ i }}</label>
+                    {% endfor %}
+                </label>
+            </div class="input_name"> 
+           <div class="btn">{{ form.book }}</div>
+            <button class="btn" type="submit">Загрузить</button>
+            </form>
+        </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 {% extends 'mainBook/layout/base.html' %}
+{% load bootstrap3 %}
 {% load static %}
 
 
@@ -10,10 +11,12 @@
 {% block login %}
     <div class="main">
         <h2>Вход на сайт</h2>
-        <form method="post">
+        <form method="post" class="form-control form-control-lg row g-2 container-md">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn" type="submit">Вход</button>
+            {% bootstrap_form form %}
+
+            {% bootstrap_button "Войти" button_type="submit" button_class="btn btn-dark" %}
+
         </form>
     </div>
 {% endblock %}
