@@ -32,8 +32,8 @@ class BooksCreateView(CreateView):
     form_class = BooksForm
     success_url = reverse_lazy('office')
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['autors'] = Autor.objects.all()
-        context['categories'] = Categories.objects.all()
+        context['autors'] = AutorForm
+        context['categories'] = CategoriesForms
         return context

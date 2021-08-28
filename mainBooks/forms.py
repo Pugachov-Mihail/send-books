@@ -3,15 +3,15 @@ from django.core.validators import FileExtensionValidator
 from .models import Books, Autor, Categories
 
 class AutorForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=20,widget=forms.TextInput())
-    second_name = forms.CharField(max_length=20, widget=forms.TextInput())
+    first_name = forms.CharField(label='Имя автора',max_length=20,widget=forms.TextInput())
+    second_name = forms.CharField(label='Фамилия автора',max_length=20, widget=forms.TextInput())
     class Meta:
         model = Autor
         fields = '__all__'
 
 
 class CategoriesForms(forms.ModelForm):
-    title = forms.CharField(max_length=20, widget=forms.TextInput())
+    title = forms.CharField(label="Жанр" ,max_length=20, widget=forms.TextInput())
 
     class Meta:
         model = Categories
@@ -28,5 +28,5 @@ class BooksForm(forms.ModelForm):
 
     class Meta:
         model = Books
-        fields = '__all__'
+        fields = ('name', 'description','book',)
 
