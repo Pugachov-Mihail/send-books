@@ -27,7 +27,26 @@ def office(request):
     }
     return render(request, template, content)
 
-class BooksCreateView(CreateView):
+def createView(request):
+    template = 'mainBook/download.html'
+    autor = AutorForm
+    book = BooksForm
+    categories = CategoriesForms
+    context = {
+        'autors': autor,
+        'form': book,
+        'categories': categories
+    }
+    if request.method == 'POST':
+        autor = AutorForm(request.POST)
+        if autor.is_valid():
+            autor.save()
+    else:
+        autor = AutorForm()
+    return render(request, template, context)
+
+
+'''class BooksCreateView(CreateView):
     template_name = 'mainBook/download.html'
     form_class = BooksForm
     success_url = reverse_lazy('office')
@@ -36,4 +55,4 @@ class BooksCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['autors'] = AutorForm
         context['categories'] = CategoriesForms
-        return context
+        return context'''
