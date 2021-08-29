@@ -23,36 +23,48 @@ def office(request):
     book = Books.objects.all()
     template = 'mainBook/office.html'
     content = {
-        'users': book,
+        'books': book,
     }
     return render(request, template, content)
 
-def createView(request):
-    template = 'mainBook/download.html'
-    autor = AutorForm
-    book = BooksForm
-    categories = CategoriesForms
-    context = {
-        'autors': autor,
-        'form': book,
-        'categories': categories
-    }
+def createAvtor(request):
+    template = 'mainBook/createAvtor.html'
     if request.method == 'POST':
         autor = AutorForm(request.POST)
         if autor.is_valid():
             autor.save()
+            return redirect('createCateg')
     else:
         autor = AutorForm()
+    context = {
+       'autors': autor,
+    }
     return render(request, template, context)
 
+def createCategories(request):
+    template = 'mainBook/createCategories.html'
+    if request.method == 'POST':
+        categories = CategoriesForms(request.POST)
+        if categories.is_valid():
+            categories.save()
+            return redirect('createBooks')
+    else:
+        categories = CategoriesForms()
+    context = {
+        'categories': categories,
+    }
+    return render(request, template, context)
 
-'''class BooksCreateView(CreateView):
-    template_name = 'mainBook/download.html'
-    form_class = BooksForm
-    success_url = reverse_lazy('office')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['autors'] = AutorForm
-        context['categories'] = CategoriesForms
-        return context'''
+def createBooks(request):
+    template = 'mainBook/createBooks.html'
+    if request.method == 'POST':
+        books = BooksForm(request.POST)
+        if books.is_valid():
+            books.save()
+            return redirect('office')
+    else:
+        books = BooksForm()
+    context = {
+        'form': books,
+    }
+    return render(request, template, context)
