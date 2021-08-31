@@ -1,10 +1,17 @@
+import os
+
 from django.shortcuts import render, redirect
+
+from books import settings
 from .models import Autor, Books, Categories
 from registration.form import CreateUser
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from .forms import BooksForm, AutorForm, CategoriesForms
+from django.http import HttpResponse, Http404
+
+
 # Create your views here.
 
 
@@ -26,6 +33,15 @@ def office(request):
         'books': book,
     }
     return render(request, template, content)
+
+def download(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/adminpuload")
+            response['Content-Disposition']='inline;filename'+os.path.basename(file_path)
+            return response
+    raise Http404
 
 def createAvtor(request):
     template = 'mainBook/createAvtor.html'
@@ -58,7 +74,7 @@ def createCategories(request):
 def createBooks(request):
     template = 'mainBook/createBooks.html'
     if request.method == 'POST':
-        books = BooksForm(request.POST)
+        books = BooksForm(request.POST, request.FILES)
         if books.is_valid():
             books.save()
             return redirect('office')

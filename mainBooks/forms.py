@@ -21,9 +21,11 @@ class CategoriesForms(forms.ModelForm):
 class BooksForm(forms.ModelForm):
     book = forms.FileField(label='Загрузите книгу', validators=[
         FileExtensionValidator(allowed_extensions=('pdf', 'fb2', 'mobi', 'epab', 'djvu'))
-    ], error_messages={'invalid_extension': 'Этот формат не поддерживается'}, widget=forms.FileInput)
+    ], error_messages={'invalid_extension': 'Этот формат не поддерживается'} ,widget=forms.FileInput)
     name = forms.CharField(label='Название книги', max_length=50, widget=forms.TextInput)
     description = forms.CharField(label='Описание', max_length=500, widget=forms.Textarea, required=False)
+
+
 
     class Meta:
         model = Books

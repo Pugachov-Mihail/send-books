@@ -2,6 +2,11 @@ from django.urls import path
 from .views import index, office, createAvtor, createCategories, createBooks
 from django.contrib.auth.views import LoginView, LogoutView
 from registration.form import Login, CreateUser
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import url
+from django.views.static import serve
+
 from django.contrib.auth.models import User
 
 
@@ -14,5 +19,11 @@ urlpatterns = [
     path('office/', office, name='office'),
     path('office/createAvtor/', createAvtor, name='createAvtor'),
     path('office/createCategories/', createCategories, name='createCateg'),
-    path('office/createBooks/', createBooks, name='createBooks')
+    path('office/createBooks/', createBooks, name='createBooks'),
+    path(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
