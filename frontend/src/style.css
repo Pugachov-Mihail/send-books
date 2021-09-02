@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800;900&display=swap");
+body {
+  background: #e9e9e9;
+  width: 100%;
+}
+
+.nav {
+  width: 100%;
+  height: 10vh;
+  background: #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav .logo {
+  padding: 1.6%;
+  padding-left: 10%;
+}
+
+.nav .logo .get {
+  color: red;
+  font-family: 'Satisfy', cursive;
+  size: 10vh;
+  font-size: 26px;
+}
+
+.nav .logo .book {
+  color: white;
+  font-family: 'Satisfy', cursive;
+  size: 10vh;
+  font-size: 26px;
+}
+
+.nav .main {
+  padding: 2% 1% 1% 1%;
+  height: 7vh;
+  width: 45%;
+}
+
+.nav .main li {
+  color: white;
+  padding-right: 2%;
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav .main li:active {
+  color: red;
+}
+
+.nav .regist {
+  margin-top: 1.5%;
+  margin-left: 15%;
+  font-size: 15px;
+  height: 50%;
+  border-radius: 100px 100px 100px 100px;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  background: white;
+  border-color: white;
+}
+
+.nav .regist:active {
+  background: red;
+  color: black;
+  border-color: red;
+}
+
+main .main {
+  position: static;
+  width: 70%;
+  height: 30vh;
+}
+
+.main_block {
+  position: relative;
+  margin-left: 10%;
+  width: 90%;
+  height: 30%;
+}
+
+.main_block img {
+  position: absolute;
+  padding: 1% 1%;
+  height: 25vh;
+  width: 23%;
+}
+
+.main_block .heading {
+  position: absolute;
+  margin: 1% 25%;
+  font-size: 26px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.main_block .autor {
+  position: absolute;
+  margin: 3.5% 25%;
+  font-size: 19px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.main_block .description {
+  position: absolute;
+  margin: 6% 25%;
+  width: 60%;
+  height: 15vh;
+}
+
+.main_block .btn {
+  position: absolute;
+  margin: 14% 25%;
+  width: 10%;
+  border-radius: 100px 100px 100px 100px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  background: black;
+  border-color: black;
+}
+
+.main_block .btn:active {
+  background: red;
+  color: black;
+  border-color: red;
+}
+
+.main_block .reit {
+  position: absolute;
+  height: 10vh;
+  margin-left: 86%;
+  margin-top: 6%;
+  padding: 0;
+}
+
+.main_block .reit h2 {
+  font-family: 'Roboto Slab', serif;
+}
+
+.main_block .reit .starts {
+  padding-top: 1%;
+  font-size: 25px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+}
+
+.main_block .reit .download {
+  border-radius: 100px 100px 100px 100px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  background: black;
+  border-color: black;
+  width: 60%;
+  margin-top: 15%;
+  height: 25px;
+}
+
+.main_block .reit .download:active {
+  background: red;
+  color: black;
+  border-color: red;
+}
+/*# sourceMappingURL=style.css.map */
