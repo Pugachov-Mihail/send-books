@@ -1,33 +1,33 @@
 <template>
-  <nav-panel
-  v-for="menu in NavMenu"
-  :key="menu.hello"
-  >
-    <h1>{{ menu.hello }}</h1>
-  </nav-panel>
+  <nav-panel></nav-panel>
+  <main-menu> </main-menu>
 </template>
 
 <script>
-
-import NavPanel from './NavPanel'
-import './reset.css'
-import './style.css'
-
+import NavPanel from "./components/NavPanel";
+import MainMenu from "./components/MainMenu.vue";
+import "./assets/reset.css";
+import "./assets/style.css";
+import "./assets/font.css";
 
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      NavMenu: {
-        hello: "hello"
-      }
-    }
+      books: {
+        name: "Ivan",
+        description: "das",
+        categories: "dasdas",
+        url: "",
+        autor: "caS",
+      },
+    };
   },
   components: {
-    'nav-panel': NavPanel
-  }
-}
+    "nav-panel": NavPanel,
+    "main-menu": MainMenu,
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
