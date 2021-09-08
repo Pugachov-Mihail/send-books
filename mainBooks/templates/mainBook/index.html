@@ -1,6 +1,7 @@
 {% extends 'mainBook/layout/base.html' %}
 {% load static %}
 {% block main %}
+<!-- Через цикл  происходит вывод данных на главную страницу  -->
     {% for book in books %}
             <div class="main"><div class="main_block">
                 <img src="{% static 'mainBook/temp/book.jpg' %}" alt="Book">

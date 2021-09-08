@@ -3,6 +3,7 @@ from django.core.validators import FileExtensionValidator
 from .models import Books, Autor, Categories
 
 class AutorForm(forms.ModelForm):
+    """Форма для внесенния данных об авторе"""
     first_name = forms.CharField(label='Имя автора',max_length=20,widget=forms.TextInput())
     second_name = forms.CharField(label='Фамилия автора',max_length=20, widget=forms.TextInput())
     class Meta:
@@ -11,6 +12,7 @@ class AutorForm(forms.ModelForm):
 
 
 class CategoriesForms(forms.ModelForm):
+    """Форма для данных об жанре"""
     title = forms.CharField(label="Жанр" ,max_length=20, widget=forms.TextInput())
     class Meta:
         model = Categories
@@ -19,6 +21,7 @@ class CategoriesForms(forms.ModelForm):
 
 
 class BooksForm(forms.ModelForm):
+    """форма для загруки книг"""
     book = forms.FileField(label='Загрузите книгу', validators=[
         FileExtensionValidator(allowed_extensions=('pdf', 'fb2', 'mobi', 'epab', 'djvu'))
     ], error_messages={'invalid_extension': 'Этот формат не поддерживается'} ,widget=forms.FileInput)

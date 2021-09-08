@@ -16,6 +16,7 @@ from django.http import HttpResponse, Http404
 
 
 def index(requests):
+    #Вывод данных из модели books на главной страницы
     books = Books.objects.all()
     categor = Categories.objects.all()
     template = 'mainBook/index.html'
@@ -27,6 +28,7 @@ def index(requests):
 
 
 def office(request):
+    #Личный кабинет и выгрузка книг
     book = Books.objects.all()
     template = 'mainBook/office.html'
     content = {
@@ -35,6 +37,7 @@ def office(request):
     return render(request, template, content)
 
 def download(request, path):
+    #Загрузка файлов
     file_path = os.path.join(settings.MEDIA_ROOT, path)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
@@ -44,6 +47,7 @@ def download(request, path):
     raise Http404
 
 def createAvtor(request):
+    #Создание автора
     template = 'mainBook/createAvtor.html'
     if request.method == 'POST':
         autor = AutorForm(request.POST)
@@ -58,6 +62,7 @@ def createAvtor(request):
     return render(request, template, context)
 
 def createCategories(request):
+    #создание жанров книг
     template = 'mainBook/createCategories.html'
     if request.method == 'POST':
         categories = CategoriesForms(request.POST)
@@ -72,6 +77,7 @@ def createCategories(request):
     return render(request, template, context)
 
 def createBooks(request):
+    #загрузка самих книг
     template = 'mainBook/createBooks.html'
     if request.method == 'POST':
         books = BooksForm(request.POST, request.FILES)
