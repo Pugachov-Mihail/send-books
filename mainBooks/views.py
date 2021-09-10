@@ -1,7 +1,5 @@
 import os
-
 from django.shortcuts import render, redirect
-
 from books import settings
 from .models import Autor, Books, Categories
 from registration.form import CreateUser
@@ -9,9 +7,10 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from .forms import BooksForm, AutorForm, CategoriesForms
-from django.http import HttpResponse, Http404
-
-
+from django.http import HttpResponse, Http404, JsonResponse
+from .serializers import BooksSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 # Create your views here.
 
 
@@ -90,3 +89,10 @@ def createBooks(request):
         'form': books,
     }
     return render(request, template, context)
+
+@api_view(['GET'])
+def api_index(request):
+    if request.method == 'GET':
+        book = Books.objects.all()
+        seriz = BooksSerializer(book, many=True)
+        return Response(seriz.data)

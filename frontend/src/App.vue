@@ -1,6 +1,6 @@
 <template>
   <nav-panel></nav-panel>
-  <main-menu> </main-menu>
+  <main-menu>{{ seriz|json_script:"idDjango" }}</main-menu>
 </template>
 
 <script>
@@ -14,6 +14,9 @@ export default {
   name: "App",
   data() {
     return {
+      beck: {
+        beck: JSON.parse(document.getElementById("idDjango").textContent),
+      },
       books: {
         name: "Ivan",
         description: "das",

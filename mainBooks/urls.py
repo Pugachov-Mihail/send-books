@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, office, createAvtor, createCategories, createBooks
+from .views import index, office, createAvtor, createCategories, createBooks, api_index
 from django.contrib.auth.views import LoginView, LogoutView
 from registration.form import Login, CreateUser
 from django.conf import settings
@@ -21,6 +21,7 @@ urlpatterns = [
     path('office/createCategories/', createCategories, name='createCateg'),
     path('office/createBooks/', createBooks, name='createBooks'),
     path(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('api/', api_index),
 ]
 
 
